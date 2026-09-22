@@ -1,7 +1,7 @@
 ﻿/***************************
 * Author: Chebotnikov A.V. *
 * Variant: 8               *
-* Title: Linear		         *
+* Title: Linear            *
 ***************************/
 
 #include <iostream>
