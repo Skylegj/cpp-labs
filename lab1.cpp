@@ -1,8 +1,8 @@
-﻿/***************************
-* Author: Chebotnikov A.V. *
-* Variant: 8               *
-* Title: Linear            *
-***************************/
+/******************************
+* Автор: Чеботников Александр *
+* Задание: Линейные алгоритмы *
+* Вариант: 8                  *
+******************************/
 
 #include <iostream>
 #include <cmath>
@@ -10,10 +10,8 @@
 using namespace std;
 
 int main() {
-  // Mathematical constant
   const double PI = 3.141592653589793;
 
-  // Block 1: Input data
   double thermalConductivity;
   double innerRadius;
   double outerRadius;
@@ -22,39 +20,38 @@ int main() {
   double flatArea;
   double cylinderLength;
 
-  cout << "lambda = ";
-  cin >> thermalConductivity;
-  cout << "R1 = ";
-  cin >> innerRadius;
-  cout << "R2 = ";
-  cin >> outerRadius;
-  cout << "t1 = ";
-  cin >> innerTemperature;
-  cout << "t2 = ";
-  cin >> outerTemperature;
-  cout << "F = ";
-  cin >> flatArea;
-  cout << "L = ";
-  cin >> cylinderLength;
-
-  // Block 2: Heat flow calculations
   double flatHeatFlow;
   double cylindricalHeatFlow;
   double sphericalHeatFlow;
 
-  flatHeatFlow = thermalConductivity * flatArea * (innerTemperature - outerTemperature)
-    / (outerRadius - innerRadius);
-  cylindricalHeatFlow = 2.0 * PI * thermalConductivity * cylinderLength
-    * (innerTemperature - outerTemperature) / log(outerRadius / innerRadius);
-  sphericalHeatFlow = 4.0 * PI * thermalConductivity * (innerTemperature - outerTemperature)
-    / (1.0 / innerRadius - 1.0 / outerRadius);
+  cout << "lambda = ";
+  cin >> thermalConductivity;
 
-  // Block 3: Output results
-  cout << fixed;
-  cout.precision(6);
+  cout << "R1 (m) = ";
+  cin >> innerRadius;
+
+  cout << "R2 (m) = ";
+  cin >> outerRadius;
+
+  cout << "t1 = ";
+  cin >> innerTemperature;
+
+  cout << "t2 = ";
+  cin >> outerTemperature;
+
+  cout << "F (m^2) = ";
+  cin >> flatArea;
+
+  cout << "L (m) = ";
+  cin >> cylinderLength;
+
+  flatHeatFlow = thermalConductivity * flatArea * (innerTemperature - outerTemperature) / (outerRadius - innerRadius);
+  cylindricalHeatFlow = 2.0 * PI * thermalConductivity * cylinderLength * (innerTemperature - outerTemperature) / log(outerRadius / innerRadius);
+  sphericalHeatFlow = 4.0 * PI * thermalConductivity * (innerTemperature - outerTemperature) / (1.0 / innerRadius - 1.0 / outerRadius);
+
   cout << "Q1 = " << flatHeatFlow << endl
-    << "Q2 = " << cylindricalHeatFlow << endl
-    << "Q3 = " << sphericalHeatFlow << endl;
+       << "Q2 = " << cylindricalHeatFlow << endl
+       << "Q3 = " << sphericalHeatFlow << endl;
 
   return 0;
 }
